@@ -44,7 +44,7 @@ func Init(dev string) (*Framebuffer, error) {
 		return nil, err
 	}
 
-	fb.data, err = syscall.Mmap(int(fb.dev.Fd()), 0, int(fb.finfo.Smem_len+uint32(fb.finfo.Smem_start&uint64(syscall.Getpagesize()-1))), protocolRead|protocolWrite, mapShared)
+	fb.data, err = syscall.Mmap(int(fb.dev.Fd()), 0, int(fb.finfo.Smem_len), protocolRead|protocolWrite, mapShared)
 	if err != nil {
 		fb.dev.Close()
 		return nil, err

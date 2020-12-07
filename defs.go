@@ -5,7 +5,7 @@ package framebuffer
 
 type fixedScreenInfo struct {
 	Id           [16]int8
-	Smem_start   uint64
+	Smem_start   uintptr
 	Smem_len     uint32
 	Type         uint32
 	Type_aux     uint32
